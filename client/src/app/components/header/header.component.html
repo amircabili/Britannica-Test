@@ -1,0 +1,29 @@
+<div class="headerComponent ">
+<header>
+  <div class="row topLinks">
+    <div class="col-sm-8 mx-auto">
+      <div class="row">
+        <div class="col-md-3 col-xs-12 mr-auto  float-left">
+          <nav class="nav nav-masthead justify-content-left">
+            <a *ngIf="authService.loggedIn()"  class="nav-link mt-1" href="javascript:;"  (click)="openPopUpAddNote()"  routerLinkActive="active">  Add Note </a>
+          </nav>
+        </div>
+        <div class="ml-auto col-md-3 col-xs-12 float-right">
+          <nav class="nav nav-masthead justify-content-left">
+             <a *ngIf="!authService.loggedIn()" class="nav-link mt-1" href="#"  routerLink="/login" routerLinkActive="active">  Sign In </a>
+            <a *ngIf="!authService.loggedIn()" class="nav-link mt-1" href="#"  routerLink="/login" routerLinkActive="active">Register</a>
+            <a *ngIf="authService.loggedIn()" (click)="authService.logOutUser()" class="nav-link mt-1" href="javascript:;"  routerLink="/login" routerLinkActive="active">  LogOut </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="headerBannerWrapper d-flex">
+    <div class="row w-100">
+      <h1 class="header justify-content-center align-self-center text-center">
+        <p class="header1"><b><span>WELCOME TO POST BOARD</span></b>  </p>
+      </h1>
+    </div>
+  </div>
+</header>
+</div>

@@ -1,0 +1,90 @@
+<div class="loginPageComponent">
+
+  <div class="container login py-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="row">
+          <div class="col-sm-6  text-left float-left col-xs-12 pr-sm-5 pr-sm-1 pr-xs-0 pl-xs-0">
+            <div class="innerFormWrapper">
+              <h2>LOG IN</h2>
+              <div class="form-container">
+                <form [formGroup]="loginUserData" (submit)="loginUser()">
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12 ">
+                      <mat-form-field class="form-field w-100">
+                        <mat-label>
+                        </mat-label>email
+                        <input matInput formControlName="email" required ngModel>
+                        <mat-error *ngIf="loginUserData.controls.email.touched && loginUserData.controls.email.invalid">
+                          <span *ngIf="loginUserData.controls.email.errors.required">This field is mandatory.</span>
+                          <span *ngIf="loginUserData.controls.email.errors.pattern">This field is invalid.</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12 ">
+                      <mat-form-field class="form-field w-100">
+                        <mat-label> Password
+                        </mat-label>
+                        <input matInput   formControlName="password" type="password" ngModel>
+                        <mat-error *ngIf="loginUserData.controls.password.touched && loginUserData.controls.password.invalid">
+                          <span *ngIf="loginUserData.controls.password.errors.required">This field is mandatory.</span>
+                        </mat-error>
+                      </mat-form-field>
+                  </div>
+                </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-xs-12 ml-auto  mt-2 ">
+                        <button class="login"   rounded-0  float-left color="primary" type="submit">SIGN IN</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6   text-left float-left col-xs-12   border-left pl-sm-5 pr-sm-1 pr-xs-0 pl-xs-0">
+            <div class="innerFormWrapper">
+              <h2>REGISTER</h2>
+              <div class="form-container">
+                <form [formGroup]="registerUserData" (submit)="registerUser()">
+                  <div class="row">
+                    <div class="col-sm-12 col-xs-12 ">
+                        <mat-form-field class="form-field w-100">
+                          <mat-label>
+                          </mat-label>email
+                          <input matInput formControlName="email" required ngModel>
+                          <mat-error *ngIf="registerUserData.controls.email.touched && registerUserData.controls.email.invalid">
+                            <span *ngIf="registerUserData.controls.email.errors.required">This field is mandatory.</span>
+                            <span *ngIf="registerUserData.controls.email.errors.pattern">This field is invalid.</span>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-xs-12 ">
+                        <mat-form-field class="form-field w-100">
+                          <mat-label> Password
+                          </mat-label>
+                          <input matInput   formControlName="password" type="password" ngModel>
+                          <mat-error *ngIf="registerUserData.controls.password.touched && registerUserData.controls.password.invalid">
+                            <span *ngIf="registerUserData.controls.password.errors.required">This field is mandatory.</span>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12 col-xs-12 mt-2">
+                           <button class="register"   rounded-0 mt-2 color="primary" type="submit">CREATE ACCOUNT</button>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

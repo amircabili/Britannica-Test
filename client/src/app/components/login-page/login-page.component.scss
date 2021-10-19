@@ -1,0 +1,91 @@
+.loginPageComponent{
+  span,a,h1,h2,h3,h4,h5{
+    line-height: normal  ;
+  }
+
+
+    .container.login{
+
+      .innerFormWrapper{
+        form{
+
+          .row{
+
+              div{
+                button.login{
+                  background: #00c8c8  ;
+                  border-radius: 0;
+                  padding: 14px;
+                  min-width: 140px;
+                  color:white;
+                }
+
+                button.register{
+                  background: transparent;
+                  border-radius: 0;
+                  padding: 10px;
+                  min-width: 180px;
+                  border: solid 1px black;
+                }
+              }
+          }
+
+          ::ng-deep .mat-form-field {
+            .mat-input-element ,input{
+              text-indent: 10px;
+              margin-top: 20px;
+              min-height: 30px;
+              padding: 0;
+              margin: 0;
+            }
+            .mat-form-field-label {
+
+            }
+            .mat-form-field-underline {
+              background-color: transparent;
+            }
+            .mat-form-field-ripple {
+              background-color: transparent;
+            }
+            .mat-form-field-required-marker {
+              color: black;
+            }
+          }
+
+          ::ng-deep .mat-form-field.mat-focused {
+            .mat-form-field-label {
+              color: #ff884d;
+            }
+            .mat-form-field-ripple {
+              background-color: #ff884d;
+            }
+            .mat-form-field-required-marker {
+              color: #ff884d;
+            }
+            .mat-input-element {
+              color: #ff884d;
+            }
+          }
+
+          ::ng-deep .mat-form-field.mat-form-field-invalid {
+            .mat-input-element {
+              color: #f44336;
+            }
+            .mat-form-field-label {
+              color: #f44336;
+              .mat-form-field-required-marker {
+                color: #f44336;
+              }
+            }
+            .mat-form-field-ripple {
+              background-color: #f44336;
+            }
+          }
+
+
+        }
+      }
+
+
+  }
+}

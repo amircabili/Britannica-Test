@@ -1,0 +1,191 @@
+
+/////////////////////  material design \ prime-ng  //////////////////////////////////
+
+  .questionMarkIcon{
+    width: 25px;
+    height: 24px;
+    margin: 0 auto;
+   }
+
+  .direction-rtl {
+    direction: rtl !important;
+  }
+
+  .direction-ltr {
+    direction: ltr !important;
+  }
+
+  .white-space-nowrap{
+    white-space: nowrap !important;
+  }
+
+  .frn-cursor-pointer{
+    cursor:pointer !important;
+  }
+
+  .frn-pointer-events-none{
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+  }
+
+  a:hover, a:active, a:focus, a img, object, embed ,a:active, a:focus,button ,.btn,button:focus{
+      outline: 0;
+      border : 0;
+      border: none;
+      -moz-outline-style: none;
+    }
+
+  *{
+    font-family: Rubik;
+  }
+
+  html{
+    overflow: auto;
+  }
+
+  body {
+    margin: 0;
+    background-color: #fdf9e5;
+    line-height: normal;
+    overflow-x: hidden;
+
+    span,a,h1,h2,h3,h4,h5{
+      line-height: normal;
+    }
+
+    .appWrapper{
+      margin:0;
+
+      @media (max-width: 425px) {
+        margin:0;
+      }
+
+      .main-content-wrapper{
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+      }
+
+       background-size:100%;
+        @media (max-width: 768px) {
+          background-size:150%;
+        }
+      height:100%;
+    }
+
+    //////////////////////  dialog modal //////////////////////////////////
+    //mat-dialog-container#modal-component,mat-dialog-container {
+    //    padding: 0 !important;
+    //    background: #fdfbff;
+    //  }
+    //
+    //a{
+    //  text-decoration: none;
+    //}
+    //
+
+
+
+
+
+    .panel-heading{
+
+      z-index: 9;
+      position: relative;
+
+        &.pointerCursor{
+          cursor:pointer;
+        }
+    }
+
+    //button.btn {
+    //  min-width:70px;
+    //}
+
+
+  }
+
+
+  hr {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border: 0;
+      border-top: 1px solid rgba(0,0,0,.1);
+      width: 100%;
+      float: right;
+  }
+
+  .vertical-align{
+      display: flex;
+  }
+
+  .background-pink {
+    background-color: #563d7c;
+  }
+
+  .background-blue {
+    background-color: #007bff;
+  }
+  .background-indigo {
+    background-color: #6610f2;
+  }
+  .background-purple {
+    background-color: #6f42c1;
+  }
+  .background-pink {
+    background-color: #e83e8c;
+  }
+  .background-red {
+    background-color: #dc3545;
+  }
+  .background-orange {
+    background-color: #fd7e14;
+  }
+  .background-yellow {
+    background-color: #ffc107;
+  }
+  .background-green {
+    background-color: #28a745;
+  }
+  .background-teal {
+    background-color: #20c997;
+  }
+  .background-cyan {
+    background-color: #544492;
+  }
+  .background-white {
+    background-color: #fff;
+  }
+  .background-gray {
+    background-color: #6c757d;
+  }
+  .background-gray-dark {
+    background-color: #343a40;
+  }
+  .background-primary {
+    background-color: #007bff;
+  }
+  .background-secondary {
+    background-color: #6c757d;
+  }
+  .background-success {
+    background-color: #28a745;
+  }
+  .background-info {
+    background-color: #544492;
+  }
+  .background-warning {
+    background-color: #ffc107;
+  }
+  .background-danger {
+    background-color: #dc3545;
+  }
+  .background-light {
+    background-color: #f8f9fa;
+  }
+  .background-dark {
+    background-color: #343a40;
+  }
+
+
+

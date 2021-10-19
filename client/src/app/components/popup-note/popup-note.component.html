@@ -1,0 +1,104 @@
+<div class="PopupNoteComponent">
+  <div class="modalHeader">
+    <div class="row m-0  ">
+      <div class="col-sm-1 col-xs-1">
+        <div class="exitButtonWrapper">
+          <button alt=""  class="exitButton pull-left"
+                  (click)="finishFunction()">x
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modalContent">
+    <div class="noteWrapper"  >
+      <div class="row"  >
+        <div class="col-md-8 col-sm-12 text-left mx-auto">
+          <div class="row ">
+            <div class="col-sm-12 col-xs-12"><h2 class="card-title m-0">Please Update Author Name:</h2>
+              <mat-form-field [ngClass]="errorField ? 'error' : ''">
+                <mat-label>  </mat-label>
+                <input matInput required
+                       [(ngModel)]="note.authorname"
+                       placeholder="{{note.authorname}}"
+                       type="text"
+                       #authorname
+                       maxlength="30"
+                       autcomplete="false"
+                       class="text-left"
+                       alt="{{note.authorname}}"
+                       value="">
+                <div class="errorField" *ngIf="!authorname.value && errorField">
+                  <span> Please Fill Input </span>
+                </div>
+              </mat-form-field>
+
+            </div>
+          </div>
+          <div class="row  ">
+            <div class="col-sm-12 col-xs-12"><h2 class="card-title m-0">Please Update Note Content:</h2>
+              <mat-form-field [ngClass]="errorField ? 'error' : ''">
+                <mat-label>  </mat-label>
+                <input matInput required
+                       [(ngModel)]="note.content"
+                       placeholder="{{note.content}}"
+                       type="text"
+                       autcomplete="false"
+                       #noteContent
+                       maxlength="330"
+                       class="text-left"
+                       alt="{{note.content}}"
+                          value="">
+                <div class="errorField" *ngIf="!noteContent.value && errorField">
+                  <span> Please Fill Input </span>
+                </div>
+              </mat-form-field>
+
+            </div>
+          </div>
+          <div class="row  ">
+            <div class="col-sm-12 col-xs-12"><h2 class="card-title m-0">Creation Date:</h2>
+              <mat-form-field [ngClass]="false ? 'error' : ''">
+                <mat-label>  </mat-label>
+                <input matInput disabled
+                       [(ngModel)]="note.date"
+                       placeholder="{{note.date}}"
+                       type="text"
+                       maxlength="30"
+                       autcomplete="false"
+                       class="text-left"
+                       alt="{{note.date}}"
+                       value="">
+                <div class="errorField" *ngIf="false">
+                  <span> Please Fill Input </span>
+                </div>
+              </mat-form-field>
+
+            </div>
+          </div>
+
+
+          <!--   this is to prevent chrome to upload save password pop up -->
+          <input type="password" autocomplete="new-password" class="sr-only d-none"/>
+          <!--    this is to prevent chrome to upload save password pop up -->
+
+
+          <div class="row mt-4 mx-auto">
+            <div class="col-sm-5 col-xs-12" *ngIf="thisIsNewNote">
+              <button class="btn popUpButton px-4" (click)="createnote(note)">  Create Note  </button>
+            </div>
+            <div class="col-sm-5 col-xs-12" *ngIf="!thisIsNewNote">
+              <button class="btn popUpButton px-4" (click)="updatenote(note)">  Update Note  </button>
+            </div>
+            <div class="col-sm-5 col-xs-12" *ngIf="!thisIsNewNote">
+              <button class="btn popUpButton px-4" (click)="deletenote(note)">   Delete Note  </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,11 @@
+@media print {
+    
+    app-root > * { display: none; }
+    app-root app-print-layout { display: block; }
+
+    .invoice { page-break-after: always; }
+    .invoice:last-child { page-break-after: avoid; }
+
+  }
+
+ 
