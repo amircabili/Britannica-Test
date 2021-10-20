@@ -64,7 +64,7 @@ router.post('/login', (req, res) => {
 })
 
 
-router.get('/user',async (req, res)=> {
+router.get('/user',verifyToken,async (req, res)=> {
 
     let notes = await noteBL.getNotes();
     return res.json(notes)
