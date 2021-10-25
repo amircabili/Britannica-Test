@@ -1,5 +1,5 @@
 # Britannica
-"# FullStack_test_Agular_nodeJs" 
+"# a FullStack_WebSite_responsive_Agular_nodeJs_JWT-Auth" 
 
     (please download full site here and npm install it with node moduls - for client folder and server folder too
 
