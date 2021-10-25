@@ -26,7 +26,7 @@ the server side is connected to a local mongodb database
 first collection is -   notes  -   for the purpose of using documents (notes) that are created in this form -
 
 
-structure:
+structure==>
 
 {
    
@@ -47,7 +47,9 @@ the second collection is - users - for the purpose of tthe website  log in - aut
 a user - is created as a document like this - 
 
 
-structure:
+structure==>
+
+
 {
    
     "email" : "amircabili@hotmail.com",
