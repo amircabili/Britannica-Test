@@ -1,0 +1,70 @@
+p-table {
+     div.ui-table table , div.ui-table div.ui-table-wrapper  {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 8px 10px 1px rgba(0, 0, 0, 0.04), 0 3px 10px 2px rgba(0, 0, 0, 0.12);
+       border-radius: 20px;
+  }
+
+  ::ng-deep .mat-button-focus-overlay {
+    display: none !important;
+  }
+
+  border-spacing: 0;
+  thead {
+    tr {
+      height: 56px;
+
+      th {
+        padding: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(0,0,0,.54);
+
+        &:first-of-type {
+          padding-left: 24px;
+        }
+
+        input{
+            text-indent:5px;
+            background:transparent;
+            font-size:14px;
+            font-weight: 300;
+            outline-width: 0;
+            width:80%;
+            height:30px;
+            border:solid 0 gray ;
+            border-bottom: solid 0.5px lightgray;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      height: 48px;
+       td {
+        border: 0px solid #c8c8c8;
+        border-right: solid gray 0px;
+        border-left: 0px;
+        padding: 0;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        font-size: 14px;
+        border-right:solid 0px gray !important;
+        border-left:solid 0px gray !important;
+
+        &:first-of-type {
+          padding-left: 24px;
+        }
+      }
+    }
+  }
+}
+
+.p-table tbody,
+.p-table tfoot,
+.p-table thead,
+.p-table-sticky {
+  background: inherit;
+}

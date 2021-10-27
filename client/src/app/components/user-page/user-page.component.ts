@@ -3,7 +3,10 @@ import {UserService} from '../../services/user.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {GlobalFunctionsService} from '../../services/global-functions.service';
-
+import { NoteService } from 'src/app/services/note.service';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Note } from '../../models/note.model';
 
 @Component({
   selector: 'app-user-page',
@@ -12,26 +15,30 @@ import {GlobalFunctionsService} from '../../services/global-functions.service';
 })
 export class UserPageComponent implements OnInit {
 
-  notes: any;
-  private noteSelectedData: any;
+  notes : Observable<Note[]>;
 
+ notesData: any;
+
+  private subscriber: any;
+  private noteSelectedData: any;
+  
   constructor(
     public userService: UserService,
+    public noteService: NoteService,
     public globalFunctionsService: GlobalFunctionsService,
-    public router: Router
-  ) { }
+    public router: Router,
+    private store : Store<{notes : Note[]}>
+  ) {  }
 
   ngOnInit(): void {
-    this.userService.getUser()
+    
+    this.notes = this.store.select(data =>data.notes)
+
+    this.subscriber = this.userService.getUser()
       .subscribe(
-        res => this.notes = res,
-        err => {
-          if (err instanceof HttpErrorResponse){
-            if (err.status === 401){
-              this.router.navigate(['/login']);
-            }
-          }
-        }
+        res => {
+          console.log('getUser() subscribe data - ' + JSON.stringify(res));
+          this.notesData = res}
       );
   }
 

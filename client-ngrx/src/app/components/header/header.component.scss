@@ -1,0 +1,292 @@
+
+.headerComponent{
+
+
+  .headerBannerWrapper{
+    background:no-repeat center  url('../../../media/pics/back1.jpg');
+    min-height: 150px;
+    background-size: cover;
+    height: 100%;
+    box-shadow: 4px 4px 2px 1px rgb(0 0 0 / 20%);
+
+    .header{
+      .header1{
+        position: relative;
+        color: #484c4c;
+        letter-spacing: 2px;
+        font-size: 46px;
+      }
+
+    }
+  }
+
+  .navbar{
+
+    button.navbar-toggler{
+      border:solid 0px gray;
+
+      &:hover, &:active, &:focus{
+        box-shadow: none;
+      }
+        span{
+          background:gray;
+          border-radius: 40px;
+        }
+    }
+
+    .navbar-collapse{
+
+        ul{
+          margin: 0 15px;
+          li{
+            a{
+                margin: 0 15px;
+            }
+          }
+        }
+    }
+  }
+
+  span,a,h1,h2,h3,h4,h5{
+    line-height: normal;
+  }
+
+  .topLinks{
+    background: #333333;
+    font-size: 14px;
+
+    a:hover, a:active, a:focus, a img, object, embed ,a:active, a:focus,button ,.btn,button:focus{
+      outline: 0;
+      border : 0;
+      border: none;
+      -moz-outline-style: none;
+      color:#00c8c8 !important;
+    }
+
+    a.nav-link{
+      color:#ebebeb;
+
+      &:hover,&:hover, &:active, &:focus, & img, object, embed ,&:active, &:focus {
+        outline: 0;
+        border : 0;
+        border: none;
+        -moz-outline-style: none;
+        color:#00c8c8;
+      }
+    }
+
+    .dropdownCur{
+      button.btn.dropdown-toggle{
+        background:transparent  ;
+        background-position: 10px 5px ;
+        border-radius:0;
+        padding:8px;
+        min-width:120px;
+
+        &:hover, &:active, &:focus{
+          box-shadow: none;
+          outline: 0;
+          border : 0;
+          border: none;
+          -moz-outline-style: none;
+        }
+
+        span{
+          color: gray;
+          left: 14px;
+          position: relative;
+          font-size: 12px;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .arrow {
+          border: solid gray;
+          border-width: 0 2px 2px 0;
+          display: inline-block;
+          padding: 3px;
+          left: 22px;
+          position: relative;
+          bottom:1px;
+
+          &.down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }
+        }
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+    .dropdownCart{
+      button.btn.dropdown-toggle{
+          background:#00c8c8 url("../../../media/pics/cart.jpg") no-repeat left;
+          background-position: 10px 5px ;
+          border-radius:0;
+          padding:8px;
+          min-width:120px;
+
+          &:hover, &:active, &:focus{
+            box-shadow: none;
+            outline: 0;
+            border : 0;
+            border: none;
+            -moz-outline-style: none;
+          }
+
+        span{
+          color: white;
+          left: 14px;
+          position: relative;
+          font-size: 12px;
+        }
+
+        .arrow {
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          display: inline-block;
+          padding: 3px;
+          left: 22px;
+          position: relative;
+          bottom:1px;
+
+          &.down {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }
+
+        }
+
+
+      }
+    }
+
+  }
+
+  .mainTopLinks{
+    background: #fff;
+
+    a.navbar-brand, a:hover, a:active, a:focus, a img, object, embed ,a:active, a:focus,button ,.btn,button:focus{
+      outline: 0;
+      border : 0;
+      border: none;
+      -moz-outline-style: none;
+      color:#000 !important;
+    }
+
+    a.nav-link{
+      color:#000;
+
+      &:hover,&:hover, &:active, &:focus, & img, object, embed   {
+        outline: 0;
+        border : 0;
+        border: none;
+        -moz-outline-style: none;
+        color:#000;
+      }
+    }
+
+    form{
+      input{
+          border-radius:0;
+          max-height: 30px;
+          min-width: 190px;
+          font-size: 13px;
+          border-color: #e8e8e8;
+          width: 190px;
+          color:gray;
+
+            &:hover,&:hover, &:active, &:focus, & img, object, embed   {
+              outline: 0;
+              -moz-outline-style: none;
+              box-shadow: none;
+          }
+
+      }
+
+      button.btn{
+        position: absolute;
+        background:transparent url("../../../media/pics/searchIcon.png") no-repeat right;
+        background-position: 5px 0px;
+        width: 21px;
+        height: 17px;
+        right: 36px;
+
+        &:hover,&:hover, &:active, &:focus, & img, object, embed   {
+          outline: 0 ;
+          border : 0 ;
+          border: none ;
+          -moz-outline-style: none ;
+          box-shadow: none;
+
+        }
+
+      }
+    }
+
+  }
+
+  background:#ffffff;
+
+  .loginWrapper{
+
+  }
+
+  h1,h2,h3,h4{
+    color:#4f3387;
+    margin-top:  0px;
+  }
+
+  .mainTextNameWrapper{
+    @media (max-width: 1024px) {
+      padding-right: 00px;
+      width:100%
+    }
+    h2{
+      font-size:34px;
+      font-weight: 400;
+    }
+  }
+
+  .reqButton{
+    width: 48px;
+    min-width: 40px;
+    height: 48px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    text-align: center;
+    float: left;
+
+    span{
+      text-align: center;
+    }
+  }
+
+  .settings-gear-icon{
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+  }
+
+  .password-icon{
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+  }
+  .disconect-icon{
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+  }
+
+  .disconect2x-icon{
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+  }
+
+}

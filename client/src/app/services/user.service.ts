@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,21 @@ export class UserService {
     private http: HttpClient
   ) { }
 
+  public notes : any;
+  public currentUser: any;
+  public observable : Observable<any>;
+ 
   // tslint:disable-next-line:typedef
+
+
   getUser(){
-    return this.http.get<any>(this._userUrl);
+      const observable = new Observable(subscriber => {
+            this.http.get<any>(this._userUrl).subscribe(resp=>{              
+                    // this.notes = resp;
+                    subscriber.next(resp);                        
+            })
+      });
+
+      return observable;
   }
 }

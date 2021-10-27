@@ -1,0 +1,115 @@
+.userPageComponent{
+  span,a,h1,h2,h3,h4,h5{
+    line-height: normal  ;
+  }
+
+    .main{
+      max-width: 1550px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .noteWrapper{
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      height: 250px;
+      border: 2px solid #ffbd5f;
+      background: white;
+      margin: 10px;
+      max-width: 360px;
+      padding: 0px 20px 20px 20px;
+      cursor: pointer;
+      font-size: 15px;
+      position: relative;
+      bottom: 0px;
+      box-shadow: 4px 4px 2px 1px rgb(0 0 0 / 20%);
+      margin: 0 auto;
+
+      .addNotePic{
+        height: 70%;
+        width: 150px;
+        background-color: transparent;
+        border-radius: 1px;
+        position: relative;
+        border: solid 7px #607d8b;
+        margin: 0 auto;
+        top: 10%;
+        padding: 0;
+        opacity: 0.45;
+
+        &:after{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          content: "x";
+          font-size: 179px;
+          color: #607d8b;
+          line-height: 100px;
+          text-align: center;
+          font-weight: 200;
+
+          @media (max-width: 768px) {
+            top: 20px;
+          }
+
+        }
+      }
+
+      @media (max-width: 1024px) {
+        position: relative;
+        margin: 0 auto;
+        max-width: 300px;
+        font-size: 1.3rem;
+      }
+
+
+      @media (max-width: 768px) {
+        position: relative;
+        margin: 0 auto;
+        max-width: 308px;
+        font-size: 1.3rem;
+        line-height: normal;
+        min-height: 300px;
+      }
+
+      .nameWrapper{
+        width: auto;
+        position: relative;
+        bottom: 12px;
+        background: white;
+        z-index: 99;
+        left: 5px;
+        padding: 0 7px 0 7px;
+        overflow: hidden;
+        display: inline;
+        width: auto;
+
+
+        h4{
+
+          display: inherit;
+           b{
+             padding: 0 7px 0 11px;
+             overflow: hidden;
+             display: inherit;
+             width: 100%;
+             overflow: hidden;
+             display: initial;
+             text-align: left;
+           }
+        }
+      }
+
+      .noteContentWrapper{
+        word-break: break-word;
+        display: -webkit-box;
+        max-width: 200px;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+      }
+    }
+}
