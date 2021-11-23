@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <script>
+
+  async function fetchData(){
+    let _notesUrl = 'http://localhost:4002/api/notes/';
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzU3MTUxNzAsImV4cCI6MTYzNTcyMjM3MH0.w-dCP7rW7QnuYm-Zyf4R9-D7_qT5wlACHe53u8uf-Tg'
+    //let token = localStorage["token"]
+    alert('token - '+token);
+    //let header =  new HttpHeaders({"x-access-token" : token});
+      //return this.http.post<any>(this._loginUrl, user);
+
+      let fetchParams = { 
+                            method : 'GET',      
+                            headers : {"x-access-token"  : token}     
+                        }
+                      
+        let resp = await fetch(this._notesUrl, fetchParams);
+        let notes = await resp ;
+      
+        console.log(notes);
+  }
+
+    </script>
+</head>
+
+<body>
+    <button value="34234" onClick="fetchData()">34234</button>
+</body>
+</html>

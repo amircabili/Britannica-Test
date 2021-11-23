@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { retry } from 'rxjs';
-import { tokenReference } from '@angular/compiler';
-import { interval, Observable , Subject} from 'rxjs';
+import {  Observable , Subject} from 'rxjs';
 import {DataManagerService} from './data-manager.service';
 
 
@@ -61,6 +59,10 @@ export class NoteService {
         return  notes;
     }
 
+
+    /////////////// rxjs Subject //////////////////
+
+
     updateNotes(): void {
        this.subject.next({});
     }
@@ -69,6 +71,8 @@ export class NoteService {
       return this.subject.asObservable();
     }
 
+
+  /////////////// rxjs Subject //////////////////
 
 
 
