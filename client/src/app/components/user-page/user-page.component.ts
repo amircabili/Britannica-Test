@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , OnDestroy, ChangeDetectorRef } from '@angular/core';
 import {UserService} from '../../services/user.service';
-import {HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders, } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {GlobalFunctionsService} from '../../services/global-functions.service';
 import { NoteService } from 'src/app/services/note.service';
+import { LocalService } from 'src/app/services/LocalService.service';
+
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { Note } from '../../models/note.model';
+import { interval, Observable , Subject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-user-page',
@@ -15,31 +17,55 @@ import { Note } from '../../models/note.model';
 })
 export class UserPageComponent implements OnInit {
 
-  notes : Observable<Note[]>;
+  public globalNotes: Subscription;
+  // tslint:disable-next-line:variable-name
+  private _notesUrl = 'http://localhost:4002/api/notes/';
+  sub: Subject<any>;
+  notesData: any;
 
- notesData: any;
-
-  private subscriber: any;
   private noteSelectedData: any;
-  
+  private subscription;
+
   constructor(
-    public userService: UserService,
-    public noteService: NoteService,
-    public globalFunctionsService: GlobalFunctionsService,
-    public router: Router,
-    private store : Store<{notes : Note[]}>
-  ) {  }
+    private userService: UserService,
+    private noteService: NoteService,
+    private globalFunctionsService: GlobalFunctionsService,
+    private router: Router,
+    private store: Store<{notes: Note[]}>,
+    private localService: LocalService,
+    private cd: ChangeDetectorRef,
+    private http: HttpClient
+  ) {
+
+
+    this.subscription = this.noteService.updateNotesEvent().subscribe(messege => {
+      this.loadData();
+    });
+  }
+
+  // tslint:disable-next-line:typedef
+  loadData(){
+    this.noteService.getNotes().then(response =>
+      {
+        // this.noteService.notesServiceData = response;
+        // this data should come from a global variable !!
+        this.notesData  = response;
+      }
+    );
+  }
 
   ngOnInit(): void {
-    
-    this.notes = this.store.select(data =>data.notes)
+    this.loadData();
+  }
 
-    this.subscriber = this.userService.getUser()
-      .subscribe(
-        res => {
-          console.log('getUser() subscribe data - ' + JSON.stringify(res));
-          this.notesData = res}
-      );
+  // tslint:disable-next-line:typedef
+  updateCollect() {
+    this.noteService.updateNotes();
+  }
+
+  // tslint:disable-next-line:typedef
+  onClock(){
+    this.sub.next({text: 'CustomerID'});
   }
 
 
@@ -64,4 +90,5 @@ export class UserPageComponent implements OnInit {
         //
       });
   }
+
 }

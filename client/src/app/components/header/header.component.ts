@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {NoteService} from '../../services/note.service';
-import {GlobalFunctionsService} from "../../services/global-functions.service";
+import {GlobalFunctionsService} from '../../services/global-functions.service';
 
 @Component({
   selector: 'app-header',

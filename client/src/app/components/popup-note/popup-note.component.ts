@@ -1,8 +1,10 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {NoteService} from '../../services/note.service';
 import {Router} from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { LocalService } from 'src/app/services/LocalService.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-popup-note',
@@ -16,16 +18,19 @@ export class PopupNoteComponent implements OnInit {
   public noteAuthorname: any;
   public noteContent: any;
   public noteDate: any;
-
+  observ: Subject<any>;
   public errorField = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<any>,
     public noteService: NoteService,
-    public userService: UserService,
-    public router: Router
-  ) { }
+    public localService: LocalService,
+    public router: Router,
+    private cd: ChangeDetectorRef
+  ) {
+    this.observ  = new Subject<any>();
+   }
 
   ngOnInit(): void {
     if (!this.data){
@@ -45,32 +50,36 @@ export class PopupNoteComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   updatenote(note: any) {
-   this.noteService.updateNote(note);
-   this.dialogRef.close();
+    this.noteService.updateNote(note).then(() => {
+      this.errorField = false;
+      this.noteService.updateNotes();
+      this.dialogRef.close();
+    });
   }
 
   // tslint:disable-next-line:typedef
   deletenote(note: any) {
-     this.noteService.deleteNote(note);
-     this.dialogRef.close();
-     
-  
+    this.noteService.deleteNote(note).then(() => {
+      this.errorField = false;
+      this.noteService.updateNotes();
+      this.dialogRef.close();
+    });
 
-     // location.reload();
   }
-
-
-  // tslint:disable-next-line:typedef
-
 
   createnote(note) {
   if (this.note.authorname && this.note.content){
-      this.noteService.addNote(note);
-      this.errorField = false;
-      this.dialogRef.close();
+      this.noteService.addNote(note).then(() => {
+        this.errorField = false;
+        this.noteService.updateNotes();
+        this.dialogRef.close();
+      });
+
       // location.reload();
     } else{
        this.errorField = true;
     }
   }
+
+
 }

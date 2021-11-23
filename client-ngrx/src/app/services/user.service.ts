@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   // tslint:disable-next-line:variable-name
-  private _userUrl = 'http://localhost:3000/api/user';
+  private _userUrl = 'http://localhost:4002/api/notes';
 
   observavle : Observable<any>;
 

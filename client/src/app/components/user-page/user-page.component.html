@@ -5,13 +5,18 @@
         <div class="row">
           <div class="col-sm-12 col-xs-12 ">
             <div class="row">
+              <!-- <button (click)="onClock">Click me !</button> -->
               <h1 class="display-3 text-center">Notes:</h1>
+<!--              <input type="button" class="btn btn-danger" value="updateCollect" (click)="updateCollect();"/>-->
+
 
               <div class="col-md-4 mb-5 noteWrapper"  (click)="openPopUpAddNote()" >
                 <div class="nameWrapper">
                   <h4> <b> Add New Note</b></h4>
                 </div>
-                <div class="addNotePic">  </div>
+                <div class="addNotePic">
+              </div>
+
               </div>
               <div class="col-md-4 mb-5 noteWrapper" (click)="openPopUpNote(note)" *ngFor="let note of notesData | sortBy:'desc':'date'" async>
                 <div class="nameWrapper">
@@ -23,6 +28,7 @@
                 <p class="dateWrapper">
                   <span><b>Creation Date:</b>  {{note.date}}</span>
                 </p>
+
 <!--                <p><span>{{note.date | date:'shortDate'}}</span></p>-->
               </div>
             </div>

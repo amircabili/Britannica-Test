@@ -1,4 +1,10 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { retry } from 'rxjs';
+import { tokenReference } from '@angular/compiler';
+import { interval, Observable , Subject} from 'rxjs';
+import {DataManagerService} from './data-manager.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -6,11 +12,14 @@ import { Injectable } from '@angular/core';
 export class NoteService {
 
   // tslint:disable-next-line:variable-name
-  private _noteUrl = 'http://localhost:3000/api/';
+  private _noteUrl = 'http://localhost:4002/api/notes/';
   public today: any;
- 
+  public notesServiceData: any;
+  private subject = new Subject<any>();
 
   constructor(
+    private http: HttpClient,
+    private dataManagerService: DataManagerService,
   ) { }
 
   // tslint:disable-next-line:typedef
@@ -34,64 +43,80 @@ export class NoteService {
     };
   }
 
-    // tslint:disable-next-line:typedef
-    async getNotes(){
-      const fetchParams = {
-        method : 'GET',
-        headers : {'Content-Type' : 'application/json'}
-      };
-  
-      const resp = await fetch(this._noteUrl + '/user', fetchParams);
-      const notesData = await resp.json();
- 
-      return notesData;      
-      // alert(status);
-  
+  // tslint:disable-next-line:typedef
+    async getNotes()
+    {
+        const token = sessionStorage.token;
+        console.log('sessionStorage token -' + token);
+        const fetchParams = { method : 'GET',
+                            headers : { 'x-access-token' : token}
+                            };
+
+        // let resp = await fetch("http://localhost:8000/api/products", fetchParams);
+        // _notesUrl = 'http://localhost:4002/api/notes/';
+
+        const resp = await fetch(this._noteUrl, fetchParams);
+        const notes = await resp.json();
+        this.notesServiceData = notes;
+        return  notes;
+    }
+
+    updateNotes(): void {
+       this.subject.next({});
+    }
+
+    updateNotesEvent(): Observable<any>{
+      return this.subject.asObservable();
     }
 
 
-  // tslint:disable-next-line:typedef
-  async addNote(note){
-    const fetchParams = {
-      method : 'POST',
-      body : JSON.stringify(note),
-      headers : {'Content-Type' : 'application/json'}
-    };
 
-    const resp = await fetch(this._noteUrl, fetchParams);
-    const status = await resp.json();
 
-    // alert(status);
-
+  addNote(note): Promise<unknown> {
+    const promise = new Promise((resolve, reject) => {
+      this.dataManagerService.addNoteData(note).then((response) => {
+        // @ts-ignore
+        // this.bankIds = response;
+        resolve(response);
+      })
+        .catch((error) => {
+          // this.bankIds = error;
+          reject(error);
+        });
+    });
+    return promise;
   }
 
-  // tslint:disable-next-line:typedef
-  async updateNote(note){
-    const fetchParams = {
-      method : 'PUT',
-      body : JSON.stringify(note),
-      headers : {'Content-Type' : 'application/json'}
-    };
-
-    const resp = await fetch(this._noteUrl + note._id, fetchParams);
-    const status = await resp.json();
-
-    // alert(status);
-
+  updateNote(note): Promise<unknown> {
+    const promise = new Promise((resolve, reject) => {
+      this.dataManagerService.updateNoteData(note).then((response) => {
+        // @ts-ignore
+        // this.bankIds = response;
+        resolve(response);
+      })
+        .catch((error) => {
+          // this.bankIds = error;
+          reject(error);
+        });
+    });
+    return promise;
   }
 
-  // tslint:disable-next-line:typedef
-  async deleteNote(note){
-    const fetchParams = {
-      method : 'DELETE',
-      headers : {'Content-Type' : 'application/json'}
-    };
 
-    const resp = await fetch(this._noteUrl + note._id, fetchParams);
-    const status = await resp.json();
-
-    // alert(status);
-
+  deleteNote(note): Promise<unknown> {
+    const promise = new Promise((resolve, reject) => {
+      this.dataManagerService.deleteNoteData(note).then((response) => {
+        // @ts-ignore
+        // this.bankIds = response;
+        resolve(response);
+      })
+        .catch((error) => {
+          // this.bankIds = error;
+          reject(error);
+        });
+    });
+    return promise;
   }
+
 
 }

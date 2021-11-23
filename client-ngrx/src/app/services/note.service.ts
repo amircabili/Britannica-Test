@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class NoteService {
 
   // tslint:disable-next-line:variable-name
-  private _noteUrl = 'http://localhost:3000/api/';
+  private _noteUrl = 'http://localhost:4002/api/notes';
   public today: any;
  
 
@@ -57,12 +57,21 @@ export class NoteService {
       body : JSON.stringify(note),
       headers : {'Content-Type' : 'application/json'}
     };
-
     const resp = await fetch(this._noteUrl, fetchParams);
     const status = await resp.json();
-
     // alert(status);
+  }
 
+  updateNote2() {
+    // @ts-ignore
+    const promise = new promise((resolve, reject) => {
+      resolve('');
+    })
+      .catch(error => {
+        reject(error);
+      });
+
+    return promise;
   }
 
   // tslint:disable-next-line:typedef

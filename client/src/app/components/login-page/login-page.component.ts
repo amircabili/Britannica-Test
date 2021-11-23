@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
@@ -14,7 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   registerUserData: FormGroup;
   loginUserData: FormGroup;
-
+  sub: Subscription;
 
   // tslint:disable-next-line:variable-name
   constructor(
@@ -54,13 +55,11 @@ export class LoginPageComponent implements OnInit {
     if (this.loginUserData.valid) {
       // console.log(this.loginUserData);
       this._auth.loginUser(this.loginUserData.value)
-        .subscribe(
-          loginRes => {
-            console.log(loginRes);
-            localStorage.setItem('token', loginRes.token);
+        .then(
+          data => {
+            sessionStorage.token = data.token;
             this._router.navigate(['/user']);
-          },
-          loginRes => console.log(loginRes)
+          }
         );
     }
     else{
@@ -73,13 +72,12 @@ export class LoginPageComponent implements OnInit {
     if (this.registerUserData.valid) {
       // console.log(this.registerUserData);
       this._auth.registerUser(this.registerUserData.value)
-        .subscribe(
+        .then(
           registerRes => {
             console.log(registerRes);
-            localStorage.setItem('token', registerRes.token);
+            sessionStorage.token = registerRes.token;
             this._router.navigate(['/user']);
-          },
-          registerRes => console.log(registerRes)
+          }
         );
     }
     else{

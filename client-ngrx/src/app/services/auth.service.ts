@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   // tslint:disable-next-line:variable-name
-  private _registerUrl = 'http://localhost:3000/api/register';
+  private _registerUrl = 'http://localhost:4002/api/register';
   // tslint:disable-next-line:variable-name
-  private _loginUrl = 'http://localhost:3000/api/login';
+  private _loginUrl = 'http://localhost:4002/api/login';
 
 
   constructor(
