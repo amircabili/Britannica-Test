@@ -47,8 +47,6 @@ export class UserPageComponent implements OnInit {
   loadData(){
     this.noteService.getNotes().then(response =>
       {
-        // this.noteService.notesServiceData = response;
-        // this data should come from a global variable !!
         this.notesData  = response;
       }
     );
