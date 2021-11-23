@@ -1,5 +1,10 @@
 # Britannica
-"# a FullStack_WebSite_responsive_Agular_nodeJs_JWT-Auth" 
+
+FullStack_WebSite_Angular12_responsive_nodeJs_ServerSide_with_JWT-Auth_ad RXJS_Subscribe
+
+
+
+"#  FullStack_WebSite_responsive_Agular_nodeJs_JWT-Auth" 
 
     (please download full site here and npm install it with node moduls - for client folder and server folder too
 
